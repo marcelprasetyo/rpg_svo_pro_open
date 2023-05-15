@@ -1,0 +1,30 @@
+<launch>
+    <!-- <arg name="skipped_frames" default="1070"/> -->
+
+  <node pkg="svo_ros" type="svo_node" name="svo" clear_params="true" output="screen">
+  <!-- <node pkg="svo_ros" type="vo_monodepth_online" name="svo" clear_params="true" output="screen"> -->
+
+    <!-- <param name="skipped_frames" value="$(arg skipped_frames)" /> -->
+
+    <!-- Camera and IMU topics to subscribe to -->
+    <param name="cam0_topic" value="/cam0/image_raw" type="str" />
+    <param name="imu_topic" value="/imu0" type="str" />
+    <param name="calib_file" value="$(find svo_ros)/param/calib/euroc_mono.yaml" type="str" />
+    
+    <!-- Camera calibration file -->
+    <rosparam file="$(find svo_ros)/param/camera_oxford_robotcar.yaml" />
+
+    <!-- Parameter settings -->
+    <rosparam file="$(find svo_ros)/param/vo_kitti.yaml" />
+
+    <!-- Initial camera orientation, make it point downwards -->
+    <param name="init_rx" value="0.00" />
+    <param name="init_ry" value="0.00" />
+    <param name="init_rz" value="0.00" />
+
+
+    <!-- RVIZ + SVO GUI -->
+    <node name="vis" pkg="rviz" type="rviz" args=" -d $(find svo_ros)/rviz_config.rviz" />
+    <node name="svo_gui" pkg="rqt_gui" type="rqt_gui" args="-s rqt_svo.svo.Svo --args --topic svo" />
+  </node>
+</launch>

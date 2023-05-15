@@ -53,6 +53,7 @@ public:
   static constexpr double seed_uncertainty_marker_scale_ = 0.03;
   static constexpr double trajectory_marker_scale_ = 0.03;
   static constexpr double point_marker_scale_ = 0.05;
+  double trajectory_scaling;
 
   ros::NodeHandle pnh_;
   size_t trace_id_ = 0;

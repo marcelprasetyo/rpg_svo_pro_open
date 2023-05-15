@@ -1,0 +1,89 @@
+label: "singapore"
+id: 412eab8e4058621f7036b5e765dfe812
+cameras:
+- camera:
+    label: cam0
+    id: 54812562fa109c40fe90b29a59dd7798
+    line-delay-nanoseconds: 0
+    image_height: 544
+    image_width: 1024
+    # image_height: 480
+    # image_width: 752
+    type: pinhole
+    intrinsics:
+      cols: 1
+      rows: 4
+      # data: [458.6548807207614, 457.2966964634893, 367.2158039615726, 248.37534060980727]
+      # data: [983.044 006, 983.044006, 643.646973, 493.378998]
+      data: [592.83883311, 594.716250455, 505.396947059, 289.281666658]
+    distortion:
+      type: none # marcelprasetyo. pre-rectified no-distortion / none distortion type. change the data to exactly the same?
+      parameters:  # not needed. won't be used for none distortion type
+        cols: 1
+        rows: 4
+        data: [-0.28340811217029355, 0.07395907389290132, 0.00019359502856909603,
+    1.7618711454538528e-05]
+  T_B_C:
+    cols: 4
+    rows: 4
+    data: [1.0, 0.0, 0.0, 0.0,
+           0.0, 1.0, 0.0, 0.0,
+           0.0, 0.0, 1.0, 0.0,
+           0.0, 0.0, 0.0, 1.0]
+- camera:
+    label: cam1
+    id: 54812562fa109c40fe90b29a59dd7798
+    line-delay-nanoseconds: 0
+    image_height: 544
+    image_width: 1024
+    # image_height: 480
+    # image_width: 752
+    type: pinhole
+    intrinsics:
+      cols: 1
+      rows: 4
+      # data: [458.6548807207614, 457.2966964634893, 367.2158039615726, 248.37534060980727]
+      # data: [983.044 006, 983.044006, 643.646973, 493.378998]
+      data: [592.83883311, 594.716250455, 505.396947059, 289.281666658]
+    distortion:
+      type: none # marcelprasetyo. pre-rectified no-distortion / none distortion type. change the data to exactly the same?
+      parameters:  # not needed. won't be used for none distortion type
+        cols: 1
+        rows: 4
+        data: [-0.28340811217029355, 0.07395907389290132, 0.00019359502856909603,
+    1.7618711454538528e-05]
+  T_B_C:
+    cols: 4
+    rows: 4
+    data: [-0.99789737,  0.02235835, -0.06083541, 0.3951900512573337,
+          -0.02320484, -0.99964301,  0.01324361, 0.0031686404735382738,
+          -0.06051759,  0.01462744,  0.99805995, 0.022509249426093684,
+          0, 0, 0, 1.0]
+        # [-0.99789737  0.02235835 -0.06083541]
+        #  [-0.02320484 -0.99964301  0.01324361]
+        #   [-0.06051759  0.01462744  0.99805995]
+    # data: [0.9980599, -0.0132436, -0.0608354, 0.3951900512573337,
+    #       0.0146274, 0.9996430, 0.0223583, 0.0031686404735382738,
+    #       0.0605176, -0.0232048, 0.9978974, 0.022509249426093684,
+    #       0, 0, 0, 1.0]
+imu_params:
+  delay_imu_cam: 0.0
+  max_imu_delta_t: 0.01
+  acc_max: 176.0
+  omega_max: 17
+  sigma_omega_c: 12.0e-4
+  sigma_acc_c: 8.0e-3
+  sigma_omega_bias_c: 0.03
+  sigma_acc_bias_c: 0.1
+  sigma_integration: 0.0
+  g: 9.8082
+  imu_rate: 800
+
+imu_initialization:
+  velocity: [0.0, 0, 0.0]
+  omega_bias: [0.0, 0, 0.0]
+  acc_bias: [0.0, 0.0, 0.0]
+  velocity_sigma: 2.0
+  omega_bias_sigma: 0.01
+  acc_bias_sigma: 0.1
+
