@@ -180,7 +180,7 @@ Visualizer::Visualizer(const std::string& trace_dir,
   pub_images_.resize(n_cameras);
   pub_cam_poses_.resize(n_cameras);
   image_transport::ImageTransport it(pnh_);
-  trajectory_scaling = vk::param<double>(pnh_, "trajectory_marker_scaling", 0.03);
+  trajectory_scaling = vk::param<double>(pnh_, "trajectory_marker_scaling", 0.03); // marcelprasetyo add: To scale the size of the trajectory marker in RVIZ
   for (size_t i = 0; i < n_cameras; ++i)
   {
     pub_dense_.at(i) = pnh_.advertise<svo_msgs::DenseInputWithFeatures>(
@@ -488,7 +488,7 @@ void Visualizer::publishTrajectoryPoint(const Eigen::Vector3d& pos_in_vision,
     vk::output_helper::publishPointMarker(
         pub_points_, pos_in_vision, "trajectory",
         ros::Time().fromNSec(timestamp), id, 0,
-        0.5 * trajectory_scaling  * vis_scale_, Vector3d(0., 0., 0.5));
+        0.5 * trajectory_scaling  * vis_scale_, Vector3d(0., 0., 0.5)); // marcelprasetyo add: To scale the size of the trajectory marker in RVIZ
   }
 }
 

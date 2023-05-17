@@ -385,7 +385,7 @@ void SvoInterface::stereoCallback(
 
   imageCallbackPreprocessing(msg0->header.stamp.toNSec());
 
-  processImageBundle({img0, img1}, msg0->header.stamp.toNSec()); // the left image's timestamp is used to publish svo/pose_imu
+  processImageBundle({img0, img1}, msg0->header.stamp.toNSec()); // marcelprasetyo: comment: the left image's timestamp is used to publish svo/pose_imu
   publishResults({img0, img1}, msg0->header.stamp.toNSec());
 
   if(svo_->stage() == Stage::kPaused && automatic_reinitialization_)
